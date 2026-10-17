@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
-  Github,
   Search,
   ShoppingBag,
   ShoppingCart,
@@ -203,6 +202,13 @@ function App() {
     setSubmittedQuery(searchInput);
   }
 
+  function handleBrowseCategory(item) {
+    setCategory(item);
+    setSearchInput("");
+    setSubmittedQuery("");
+    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="app-shell">
       <header className="site-header">
@@ -226,11 +232,11 @@ function App() {
             About
           </a>
           <a
-            className={`nav-link${activeSection === "contact" ? " active" : ""}`}
-            href="#contact"
-            onClick={() => setActiveSection("contact")}
+            className={`nav-link${activeSection === "categories" ? " active" : ""}`}
+            href="#categories"
+            onClick={() => setActiveSection("categories")}
           >
-            Contact
+            Categories
           </a>
         </nav>
       </header>
@@ -415,40 +421,36 @@ function App() {
             compare prices, and open any item for more details.
           </p>
         </div>
-        <div className="about-highlight">
-          <span className="about-icon"><ShoppingBag size={22} /></span>
-          <div>
-            <h3>A demo with real sample data</h3>
-            <p>
-              Product details come from the public DummyJSON catalog. Prices,
-              ratings, and availability are sample data, not live store offers.
-            </p>
-          </div>
-        </div>
       </section>
 
-      <section className="contact-section" id="contact">
-        <div className="contact-icon"><Github size={24} /></div>
-        <div className="contact-copy">
-          <p className="section-eyebrow">GET IN TOUCH</p>
-          <h2>Have feedback or found a bug?</h2>
-          <p>Share feedback or report an issue on the project’s GitHub page.</p>
-        </div>
-        <a
-          className="contact-link"
-          href="https://github.com/gamepatt78/product-search-app/issues"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Contact on GitHub <ArrowUpRight size={17} />
-        </a>
-      </section>
+      {categories.length > 0 && (
+        <section className="category-section" id="categories" aria-labelledby="category-heading">
+          <div className="category-heading">
+            <p className="section-eyebrow">BROWSE THE COLLECTION</p>
+            <h2 id="category-heading">Explore by category</h2>
+            <p>Pick a category to see matching products.</p>
+          </div>
+          <div className="category-grid">
+            {categories.map((item) => (
+              <button
+                className={`category-option${category === item ? " selected" : ""}`}
+                key={item}
+                type="button"
+                onClick={() => handleBrowseCategory(item)}
+              >
+                <span>{item.replaceAll("-", " ")}</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       <footer className="site-footer">
         <a className="footer-brand" href="#home">
           <ShoppingCart size={19} /> Product Search
         </a>
-        <p>Product data provided by DummyJSON for demo use.</p>
+        <p>Explore the collection and discover your next favorite.</p>
         <a href="#home">Back to top <ArrowUpRight size={14} /></a>
       </footer>
 

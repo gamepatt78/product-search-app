@@ -1,18 +1,18 @@
 # Product Search
 
-A responsive product-discovery demo built with React and Vite. Browse the [live app](https://product-search-app-929a5.web.app/) or visit the [GitHub repository](https://github.com/gamepatt78/product-search-app).
+A responsive product-discovery app built with React and Vite. Browse the [live app](https://product-search-app-929a5.web.app/) or visit the [GitHub repository](https://github.com/gamepatt78/product-search-app).
 
 ## Features
 
 - Search products by name, description, brand, or category
 - Filter by category and sort by price, name, or rating
 - View product details, ratings, and availability
-- Browse non-vehicle products from the public DummyJSON catalog. Vehicle and motorcycle products are not included.
+- Browse products from a public product catalog. Vehicle and motorcycle products are not included.
 - Load results 24 at a time
-- Responsive layout with dedicated About and Contact sections
+- Responsive layout with an About section and interactive category browsing
 - Loading, error, and no-results states
 
-Product prices, reviews, and availability are illustrative API data, shown in USD. The public API currently contains fewer than 1,000 products, so this app does not display 1,000 distinct products. Product count may change if the API dataset changes. Product data and images require an internet connection. Firebase Hosting serves the app; a Firebase database is not required.
+Product prices, reviews, and availability may differ from retailer listings and should be verified before purchase. Catalog content and images are retrieved over the internet and may change as the catalog is updated. Firebase Hosting serves the app; a Firebase database is not required.
 
 ## Requirements
 
