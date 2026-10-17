@@ -7,7 +7,7 @@ A responsive product-discovery demo built with React and Vite. Browse the [live 
 - Search products by name, description, brand, or category
 - Filter by category and sort by price, name, or rating
 - View product details, ratings, and availability
-- Browse the public DummyJSON catalog, excluding vehicle and motorcycle categories
+- Browse non-vehicle products from the public DummyJSON catalog. Vehicle and motorcycle products are not included.
 - Load results 24 at a time
 - Responsive layout with dedicated About and Contact sections
 - Loading, error, and no-results states
